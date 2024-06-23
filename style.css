@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    display:flex;
+    justify-content:space-between;
+    box-shadow: 0px 0px 5px;
+}
+
+.logo{
+    width:70px;
+    margin: 0rem 2rem;
+}
+
+ul{
+    display: flex;
+    margin: 0.5rem 4rem;
+}
+
+.nav-items ul li{
+    list-style: none;
+}
+
+.nav-items ul li a{
+    text-decoration:none;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.nav-items ul li a:hover{
+    /* text-shadow:1px 1px #fdb813; */
+    text-shadow:1px 1px 1px rgb(46, 46, 46) ;
+
+}
+ ul li{
+    padding: 10px;
+    margin: 10px;
+ }
