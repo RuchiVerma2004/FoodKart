@@ -60,13 +60,18 @@ ul{
     margin: auto;
 }
  .restaurent-card{
-    width:250px;
-    height:350px;
+    width:300px;
+    height:380px;
     background-color: #fdb71350;;
     border-radius: 10px;
     /* box-shadow: 1px 1px 5px black; */
     padding: .5rem;
     margin: 1rem;
+    transition: all .5s ease;
+ }
+
+ .restaurent-card:hover{
+    box-shadow: 2px 2px 15px #443002 ;
  }
  .restaurent-name{
     margin-top: .5rem;
