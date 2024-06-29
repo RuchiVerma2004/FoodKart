@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 // import restaurants from "../utils/mockdata"; **use this if api is not working and comment useEffect() and fetchData() 
 
 const Body = () =>{
-
+    console.log("body rendered");
     const [ListOfRestaurents, setListOfRestaurent] = useState([]);
     // uncomment below line if api is not working and comment above line.
     // const [ListOfRestaurents, setListOfRestaurent] = useState(restaurants);
-
-    
+    const [filterListOfRestaurent , setFilterListOfRestaurent] = useState();
+    const [searchText, setSearchText] = useState("");
     useEffect(()=>{
         fetchData();
     }, []);
@@ -20,7 +20,9 @@ const Body = () =>{
 
         console.log(j_data);
         // optional chaining in JavaScript
-        setListOfRestaurent(j_data.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setListOfRestaurent(j_data.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilterListOfRestaurent(j_data.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
     }
 
     // conditional rendiring
@@ -30,22 +32,44 @@ const Body = () =>{
     }
     return (
         <div className="body">
-            <div className="Search">
+            <div className="filter-bar">
+            <input 
+                type="text" 
+                className="search-box"
+                value={searchText}
+                onChange={
+                    (e)=>{
+                        setSearchText(e.target.value)
+                    }
+                }
+            />
+            <button className="search"
+            onClick={() => {
+                const filterData = ListOfRestaurents.filter((data) => {
+                    return data.info.cuisines.some((cuisine) =>
+                        cuisine.toLowerCase().includes(searchText.toLowerCase())
+                    );
+                });
+                setFilterListOfRestaurent(filterData);
+            }}
+            >Search</button>
                 <button 
+                className="filterbtn"
                 onClick={()=>{
                         const filterData = ListOfRestaurents.filter(
                             (data)=> data.info.avgRating > 4
                         );
-                        setListOfRestaurent(filterData);
+                        setFilterListOfRestaurent(filterData);
                     }}
                     >
-                    filter my data
+                    Top Rated Restaurent
                 </button>
             </div>
             <div className="Restaurent-Container">
                
                 {
-                  ListOfRestaurents.map((restaurent) => (<RestaurentCard key={restaurent.info.id} resData={restaurent}/>))
+                  
+                  filterListOfRestaurent.map((restaurent) => (<RestaurentCard key={restaurent.info.id} resData={restaurent}/>))
                 }   
                 {/* react alwas say do not use index as key/ */}
                 

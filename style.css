@@ -158,3 +158,12 @@ ul{
    width: 4rem;
    height:1rem;
 }
+
+.filter-bar{
+   display: flex;
+   margin: 0rem 3rem ;
+}
+
+.filterbtn{
+   margin: 0rem 1rem;
+}
