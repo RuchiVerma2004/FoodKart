@@ -79,5 +79,4 @@ const Body = () =>{
 };
 
 export default Body;
-
 // never ever keep hard coded data in component file
