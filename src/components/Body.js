@@ -1,6 +1,7 @@
 import RestaurentCard from "./RestaurentCard";
 import Shimmer from "./Shimmer";
 import { useEffect, useState } from "react";
+import {Link} from "react-router-dom";
 // import restaurants from "../utils/mockdata"; **use this if api is not working and comment useEffect() and fetchData() 
 
 const Body = () =>{
@@ -69,7 +70,7 @@ const Body = () =>{
                
                 {
                   
-                  filterListOfRestaurent.map((restaurent) => (<RestaurentCard key={restaurent.info.id} resData={restaurent}/>))
+                 filterListOfRestaurent.map((restaurent) => (<Link key={restaurent.info.id} to={"/restaurent/"+ restaurent.info.id}> <RestaurentCard resData={restaurent}/></Link>))
                 }   
                 {/* react alwas say do not use index as key/ */}
                 
