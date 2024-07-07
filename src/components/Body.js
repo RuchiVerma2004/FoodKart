@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 // import restaurants from "../utils/mockdata"; **use this if api is not working and comment useEffect() and fetchData() 
 
 const Body = () =>{
-    console.log("body rendered");
+    
     const [ListOfRestaurents, setListOfRestaurent] = useState([]);
     // uncomment below line if api is not working and comment above line.
     // const [ListOfRestaurents, setListOfRestaurent] = useState(restaurants);

@@ -1,10 +1,12 @@
+import { IMG_URL } from "../utils/constants";
+
 const MenuCard = ({data})=>{
     // const {name,category,description,imageID,itemAttribute,defaultPrice,ratings} = detail.card.info;
-    console.log("data");
+    // console.log("data");
 
-    console.log(data);
-    const {name,category,description,imageID,defaultPrice,ratings} = data?.card?.info;
-    console.log(data?.card?.info?.imageID);
+    // console.log(data);
+    const {name,category,description,imageId,defaultPrice,ratings} = data?.card?.info;
+    // console.log(data?.card?.info.imageID);
     return (
         <div>
             <div className="menu-card row-flex">
@@ -13,9 +15,9 @@ const MenuCard = ({data})=>{
                     <div className="food-price">Rs. {defaultPrice/100} </div>
                     <div className="food-rating">{ratings?.aggregatedRating?.rating + " (" + ratings?.aggregatedRating?.ratingCountV2 + ") "}</div>
                     <div className="about-food">{description}</div>  
-                    <div>{imageID}</div>
+                   
                 </div>
-                <div className="food-img"><img src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/n5kh2dbbszwjsu1zrzav`} alt="img-not-found" /></div>
+                <div className="food-img"><img src={IMG_URL +imageId } alt="img-not-found" /></div>
             </div>
             <hr />
         </div>
