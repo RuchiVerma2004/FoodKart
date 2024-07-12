@@ -3,10 +3,15 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import useFetchRestaurants from "../utils/useFetchRestaurants"; 
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
     const { ListOfRestaurents, filterListOfRestaurent, setFilterListOfRestaurent, loading } = useFetchRestaurants();
     const [searchText, setSearchText] = useState("");
+
+    if(useOnlineStatus ()=== false){
+        return <h1>You are Offline please check your Internet Connection </h1>;
+    }
 
     if (loading) {
         return <Shimmer />;
