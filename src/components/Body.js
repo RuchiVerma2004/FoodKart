@@ -2,7 +2,7 @@ import RestaurentCard from "./RestaurentCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import useFetchRestaurants from "../utils/useFetchRestaurants"; // Adjust the import path as necessary
+import useFetchRestaurants from "../utils/useFetchRestaurants"; 
 
 const Body = () => {
     const { ListOfRestaurents, filterListOfRestaurent, setFilterListOfRestaurent, loading } = useFetchRestaurants();
