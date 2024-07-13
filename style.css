@@ -167,3 +167,8 @@ ul{
 .filterbtn{
    margin: 0rem 1rem;
 }
+
+a{
+   text-decoration: none;
+   color: black;
+}

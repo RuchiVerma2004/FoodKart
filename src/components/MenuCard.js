@@ -5,14 +5,14 @@ const MenuCard = ({data})=>{
     // console.log("data");
 
     // console.log(data);
-    const {name,category,description,imageId,defaultPrice,ratings} = data?.card?.info;
+    const {name,category,description,imageId,price,ratings} = data?.card?.info;
     // console.log(data?.card?.info.imageID);
     return (
         <div>
             <div className="menu-card row-flex">
                 <div className="col-flex abt-food">
                     <div className="food-name">{name}</div>
-                    <div className="food-price">Rs. {defaultPrice/100} </div>
+                    <div className="food-price">Rs. {price/100} </div>
                     <div className="food-rating">{ratings?.aggregatedRating?.rating + " (" + ratings?.aggregatedRating?.ratingCountV2 + ") "}</div>
                     <div className="about-food">{description}</div>  
                    

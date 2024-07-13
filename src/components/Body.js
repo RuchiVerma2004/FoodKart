@@ -1,13 +1,15 @@
-import RestaurentCard from "./RestaurentCard";
+import RestaurentCard, { withPromotedLabel} from "./RestaurentCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import useFetchRestaurants from "../utils/useFetchRestaurants"; 
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { withPromotedLabel } from "./RestaurentCard";
 
 const Body = () => {
     const { ListOfRestaurents, filterListOfRestaurent, setFilterListOfRestaurent, loading } = useFetchRestaurants();
     const [searchText, setSearchText] = useState("");
+    const RestaurentCardPromoted = withPromotedLabel(RestaurentCard);
 
     if(useOnlineStatus ()=== false){
         return <h1>You are Offline please check your Internet Connection </h1>;
@@ -53,7 +55,11 @@ const Body = () => {
                 {
                     filterListOfRestaurent.map((restaurent) => (
                         <Link key={restaurent.info.id} to={"/restaurent/" + restaurent.info.id}>
+                           { restaurent?.data?.promoted ?
+                            <RestaurentCardPromoted resData={restaurent} />
+                           :
                             <RestaurentCard resData={restaurent} />
+                          }
                         </Link>
                     ))
                 }
