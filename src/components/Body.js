@@ -10,6 +10,8 @@ const Body = () => {
     const { ListOfRestaurents, filterListOfRestaurent, setFilterListOfRestaurent, loading } = useFetchRestaurants();
     const [searchText, setSearchText] = useState("");
     const RestaurentCardPromoted = withPromotedLabel(RestaurentCard);
+    console.log("ListOfRestaurents");
+    console.log(ListOfRestaurents);
 
     if(useOnlineStatus ()=== false){
         return <h1>You are Offline please check your Internet Connection </h1>;
@@ -20,16 +22,16 @@ const Body = () => {
     }
 
     return (
-        <div className="body">
-            <div className="filter-bar">
+        <div className="m-auto w-10/12 mt-10">
+            <div className="m-4 mt-10">
                 <input 
                     type="text" 
-                    className="search-box"
+                    className="border border-solid border-black rounded-xs"
                     value={searchText}
                     onChange={(e) => setSearchText(e.target.value)}
                 />
                 <button 
-                    className="search"
+                    className="bg-green-800 text-white px-4 mx-4 rounded-xs"
                     onClick={() => {
                         const filteredData = ListOfRestaurents.filter((data) => 
                             data.info.cuisines.some((cuisine) =>
@@ -42,7 +44,7 @@ const Body = () => {
                     Search
                 </button>
                 <button 
-                    className="filterbtn"
+                    className="mx-10 bg-gray-200 border border-black px-4 rounded-xs"
                     onClick={() => {
                         const filteredData = ListOfRestaurents.filter((data) => data.info.avgRating > 4);
                         setFilterListOfRestaurent(filteredData);
@@ -51,7 +53,7 @@ const Body = () => {
                     Top Rated Restaurent
                 </button>
             </div>
-            <div className="Restaurent-Container">
+            <div className="flex flex-wrap">
                 {
                     filterListOfRestaurent.map((restaurent) => (
                         <Link key={restaurent.info.id} to={"/restaurent/" + restaurent.info.id}>

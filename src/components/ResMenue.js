@@ -5,19 +5,29 @@ import useFetchResMenu from "../utils/useFetchResMenu";
 
 const ResMenu = () => {
     const resMenu = useFetchResMenu();
+    
+    console.log("resMenu...*****");
+    console.log(resMenu);
+    console.log("resMenu.....................");
 
     if (resMenu == null) return <Shimmer />;
 
-    const { name, cuisines } = resMenu?.cards[2]?.card?.card?.info;
-    const { card } = resMenu?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card;
+    const { name, cuisines } = resMenu?.cards[2]?.card?.card?.info || {};
+    const categoryItems = resMenu?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR.cards.filter(
+        (c) => c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    ) || [];
+
+    console.log("categoryItems");
+    console.log(categoryItems);
 
     return (
-        <div className="menu-container">
-            <div className="menu-item">
-                <h1 className="res-name">{name}</h1>
-                <p className="menu-cuisines">{cuisines?.join(", ")}</p>
-                
-               <ResMenuCardContainer itemContainer={card}/>
+        <div className="">
+            <div className="w-6/12 m-auto">
+                <h1 className="font-extrabold text-3xl mt-10">{name}</h1>
+                <p className="font-semibold mb-10">{cuisines?.join(", ")}</p>
+                {categoryItems.map((categoryItem, index) => (
+                    <ResMenuCardContainer key={index} itemContainer={categoryItem} />
+                ))}
             </div>
         </div>
     );
