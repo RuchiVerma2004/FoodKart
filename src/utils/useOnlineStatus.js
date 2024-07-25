@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
  
 const useOnlineStatus = ()=>{
-
+    console.log("useOnlineStatus called");
     const [onlineStatus, setOnlineStatus] =  useState(true);
 
     useEffect(()=>{

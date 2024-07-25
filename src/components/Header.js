@@ -6,6 +6,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 const Header = () => {
     const [btn, setBtn] = useState("Login");
     // const onlineStatus = useOnlineStatus();
+    console.log("header rendered");
 
     return (
         <div className="flex justify-between items-center shadow-xl bg-black text-white sticky top-0 w-full z-10 right-0">

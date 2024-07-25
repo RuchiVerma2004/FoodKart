@@ -11,8 +11,11 @@ import { createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
 
 
 const AppLayout = ()=>{
+
+    console.log("Applayout");
     return (
         <div className="app">
+
             <Header/>
             <Outlet/>
         </div>
@@ -21,6 +24,7 @@ const AppLayout = ()=>{
 
 const appRouter = createBrowserRouter([
     {
+        
         path: "/",
         element:<AppLayout />,
         children:[

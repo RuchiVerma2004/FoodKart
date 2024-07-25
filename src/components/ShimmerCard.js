@@ -1,14 +1,14 @@
 const ShimmerCard = ()=>{
-    return <div className="shimmer_card">
-            <div className="shimmer-img"  ></div>
-            <p className="shimmer-name"></p>
-            <p className="shimmer-name"></p>
-            <div className="shimmer-detail">
-                <p className="shimmer-rating"></p>
-                <p className="shimmer-rating"></p>
-                <p className="shimmer-rating"></p>
+    return <div className="">
+            <div className=""  ></div>
+            <p className=""></p>
+            <p className=""></p>
+            <div className="">
+                <p className=""></p>
+                <p className=""></p>
+                <p className=""></p>
             </div>
-            <p className="shimmer-name"></p>
+            <p className=""></p>
            
         </div>
 }

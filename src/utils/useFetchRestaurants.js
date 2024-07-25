@@ -5,6 +5,7 @@ const useFetchRestaurants = () => {
     const [ListOfRestaurents, setListOfRestaurent] = useState([]);
     const [filterListOfRestaurent, setFilterListOfRestaurent] = useState([]);
     const [loading, setLoading] = useState(true);
+    console.log("useFetchRestaurent api call");
 
     useEffect(() => {
         const fetchData = async () => {

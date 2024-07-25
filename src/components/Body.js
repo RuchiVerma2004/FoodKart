@@ -7,20 +7,22 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import { withPromotedLabel } from "./RestaurentCard";
 
 const Body = () => {
+    console.log("1");
     const { ListOfRestaurents, filterListOfRestaurent, setFilterListOfRestaurent, loading } = useFetchRestaurants();
     const [searchText, setSearchText] = useState("");
     const RestaurentCardPromoted = withPromotedLabel(RestaurentCard);
-    console.log("ListOfRestaurents");
-    console.log(ListOfRestaurents);
+   
 
-    if(useOnlineStatus ()=== false){
+    console.log("body rendered");
+    if(useOnlineStatus() === false){
         return <h1>You are Offline please check your Internet Connection </h1>;
     }
 
     if (loading) {
-        return <Shimmer />;
+        // return <Shimmer />;
+        console.log("loading....");
     }
-
+  
     return (
         <div className="m-auto w-10/12 mt-10">
             <div className="m-4 mt-10">
@@ -46,7 +48,7 @@ const Body = () => {
                 <button 
                     className="mx-10 bg-gray-200 border border-black px-4 rounded-xs"
                     onClick={() => {
-                        const filteredData = ListOfRestaurents.filter((data) => data.info.avgRating > 4);
+                        const filteredData = ListOfRestaurents.filter((data) => data.info.avgRating > 4.5);
                         setFilterListOfRestaurent(filteredData);
                     }}
                 >
