@@ -7,6 +7,14 @@ const  cartSlice = createSlice({
         },
         reducers:{
             addItem:(state, action)=>{
+                // Vanilla(older) Redux => DON'T MUTATAE STATE
+                // const newState = [...state];
+                // newState.items.push(action.payload);
+                // return newState;
+
+                // Resux toolkit 
+                // WE Have to mutate the state
+                
                 state.items.push(action.payload);
             },
             removeItem:(state, action) => {
@@ -17,6 +25,8 @@ const  cartSlice = createSlice({
             }
         }
 });
+
+
 
 export const { addItem, removeItem, clearCart} = cartSlice.actions;
 export default cartSlice.reducer;
