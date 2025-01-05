@@ -7,20 +7,18 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import { withPromotedLabel } from "./RestaurentCard";
 
 const Body = () => {
-    console.log("1");
+   
     const { ListOfRestaurents, filterListOfRestaurent, setFilterListOfRestaurent, loading } = useFetchRestaurants();
     const [searchText, setSearchText] = useState("");
     const RestaurentCardPromoted = withPromotedLabel(RestaurentCard);
    
-
-    console.log("body rendered");
     if(useOnlineStatus() === false){
         return <h1>You are Offline please check your Internet Connection </h1>;
     }
 
     if (loading) {
-        // return <Shimmer />;
-        console.log("loading....");
+        return <Shimmer />;
+        
     }
   
     return (
