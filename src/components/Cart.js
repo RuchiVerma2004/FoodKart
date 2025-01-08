@@ -5,7 +5,7 @@ import { clearCart } from "../utils/cartSlice";
 const Cart = ()=>{
     // subscribing a small portion of store only not the entire store
     const cartItems = useSelector((store) => store.cart.items);
-    console.log(cartItems);
+   
 
     const dispatch = useDispatch();
     const handleClearCart = ()=>{
