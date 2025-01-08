@@ -9,7 +9,7 @@ const Cart = ()=>{
 
     const dispatch = useDispatch();
     const handleClearCart = ()=>{
-        console.log("clicked");
+       
         dispatch(clearCart());
     };
 
