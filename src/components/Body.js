@@ -22,6 +22,7 @@ const Body = () => {
 
     if (loading) {
         return <Shimmer />;
+        
     }
   
     return (

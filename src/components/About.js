@@ -31,6 +31,7 @@ const About = ()=>{
                 <h2 className="text-2xl font-semibold text-gray-800 mb-4">Contact Us</h2>
                 <p className="text-gray-700">
                   Have feedback or suggestions? We'd love to hear from you! Reach out to us at <span className="text-black font-medium">contact@fooKcart.com</span>.
+                
                 </p>
               </div>
             </div>
@@ -45,4 +46,5 @@ const About = ()=>{
     };
     
     export default About;
+   
    
