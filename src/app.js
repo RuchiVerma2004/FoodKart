@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useState} from "react";
+import React, { lazy, Suspense, useEffect, useState, useContext} from "react";
 
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
@@ -13,7 +13,7 @@ import { createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
 // import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
-
+import UseContext from "./utils/userContext.js";
 
 const AppLayout = ()=>{
 
@@ -25,6 +25,7 @@ const AppLayout = ()=>{
     //     setUserName(data.name);
     // }, []);
 
+    
     console.log("Applayout");
     return (
         <Provider store={appStore}>

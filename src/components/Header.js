@@ -1,8 +1,9 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { useSelector } from "react-redux";
+import UserContext from "../utils/userContext";
 
 const Header = () => {
     const [btn, setBtn] = useState("Login");
@@ -13,16 +14,19 @@ const Header = () => {
     const cartItems = useSelector((store) => store.cart.items);
 
     // console.log(cartItems);
+    const { loggedInUser } = useContext(UserContext);
+
     return (
-        <div className="flex justify-between items-center shadow-xl bg-black text-white sticky top-0 w-full z-10 right-0">
-            <div>
-                <img className="logo w-20 mx-20" src={LOGO_URL} alt="img not found" />
+        <div className="flex justify-between items-center shadow-xl bg-black text-white sticky top-0 w-full h-20 z-10 right-0 ">
+            <div className="flex flex-row items-center w-30">
+                <img className="logo w-16 ml-16" src={LOGO_URL} alt="img not found" />
+                <div className="mx-4 font-bold text-2xl text-yellow-500">FoodKart</div>
             </div>
             <div>
                 <ul className="flex mx-16 font-bold">
                     <li className="mx-4">
                         <div>
-                            Online Status: {useOnlineStatus() ? "✅" : "🔴"}
+                            Online Status: {useOnlineStatus() ? "🟢" : "🔴"}
                         </div>
                     </li>
                     <li className="mx-4">
@@ -54,7 +58,9 @@ const Header = () => {
                         >
                             {btn}
                         </button>
+
                     </li>
+                        {<div>{loggedInUser}</div>}
                 </ul>
             </div>
         </div>

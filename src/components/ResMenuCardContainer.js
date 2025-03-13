@@ -2,8 +2,6 @@ import MenuCard from "./MenuCard";
 import { useState } from "react";
 
 const ResMenuCardContainer = ({ itemContainer }) => {
-  console.log("ResMenuContainer");
-  console.log(itemContainer);
 
   const { title } = itemContainer.card.card;
   const { itemCards } = itemContainer.card.card;

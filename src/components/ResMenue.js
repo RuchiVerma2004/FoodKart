@@ -5,10 +5,6 @@ import useFetchResMenu from "../utils/useFetchResMenu";
 
 const ResMenu = () => {
     const resMenu = useFetchResMenu();
-    
-    console.log("resMenu...*****");
-    console.log(resMenu);
-    console.log("resMenu.....................");
 
     if (resMenu == null) return <Shimmer />;
 
@@ -16,9 +12,6 @@ const ResMenu = () => {
     const categoryItems = resMenu?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR.cards.filter(
         (c) => c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     ) || [];
-
-    console.log("categoryItems");
-    console.log(categoryItems);
 
     return (
         <div className="">

@@ -5,7 +5,6 @@ import { MENU_URL } from "../utils/constants";
 const useFetchResMenu = () => {
     const [resMenu, setResMenu] = useState(null);
     const { id } = useParams();
-    console.log(id);
 
     useEffect(() => {
         getData();
