@@ -58,12 +58,6 @@ Welcome to **FoodKart**! This project is a food ordering platform that simulates
 - **React Router** – For client-side routing and navigation.
 - **Git and GitHub** – For version control and collaboration.
 
----
-
-## 🌍 **Live Preview**
-
-You can check out the live demo of **FoodKart** at:  
-[FoodKart Demo](https://main--incomparable-fox-6e2bfc.netlify.app/)
 
 ---
 
