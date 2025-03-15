@@ -117,6 +117,3 @@ Feel free to open issues or submit pull requests! Contributions are welcome.
 
 Thank you for checking out **FoodKart**. If you have any questions or suggestions, don’t hesitate to reach out!
 
----
-
-This updated README reflects the new name, **FoodKart**, and provides detailed, structured information about your project.
